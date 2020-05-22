@@ -11,7 +11,8 @@
     "comma-dangle": "off",
     "require-jsdoc": "off",
     "operator-linebreak": "off",
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "no-debugger": "off"
   },
   "extends": [
     "eslint:recommended",

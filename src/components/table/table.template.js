@@ -3,31 +3,30 @@ const CODES = {
   Z: 90,
 }
 
-// function createSell() {
-//   return `
-//     <div class="sell" contenteditable>
-//       22
-//     </div>
-//   `
-// }
-
-function toColumn(col) {
+function toSells(_, col) {
   return `
-    <div class="column">${col}</div>
+    <div class="sell" data-col="${col}" contenteditable></div>
   `
 }
 
-// свой код
-function toSells() {
+function toColumn(col, index) {
   return `
-    <div class="sell " contenteditable></div>
+    <div class="column" data-type="resizable" data-col="${index}">
+      ${col}
+      <div class="col-resize" data-resize="col"></div>
+    </div>
   `
 }
+
 
 function createRow(index, content) {
+  const resize = index ? '<div class="row-resize" data-resize="row"></div>' : ''
   return `
-    <div class="row">
-      <div class="row-info">${index ? index : ''}</div>
+    <div class="row" data-type="resizable">
+      <div class="row-info">
+        ${index ? index : ''}
+        ${resize}
+      </div>
       <div class="row-data">${content}</div>        
     </div>
   `
@@ -48,7 +47,7 @@ export function createTable(rowsCount = 15) {
     .map(toColumn)
     .join('')
 
-  const sells = new Array(colsCount)
+  const cells = new Array(colsCount)
     .fill('')
     .map(toSells)
     .join('')
@@ -56,7 +55,7 @@ export function createTable(rowsCount = 15) {
   rows.push(createRow(null, cols))
 
   for (let i = 0; i < rowsCount; i++) {
-    rows.push(createRow(i + 1, sells))
+    rows.push(createRow(i + 1, cells))
   }
 
   return rows.join('')
