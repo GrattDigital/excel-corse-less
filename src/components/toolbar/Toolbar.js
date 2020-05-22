@@ -32,7 +32,7 @@ export class Toolbar extends ExcelComponent {
       </div>  
     `
   }
-
+  // todo убрать консоль-логи
   onClick(event) {
     console.log(event.target)
   }

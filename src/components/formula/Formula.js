@@ -16,7 +16,7 @@ export class Formula extends ExcelComponent {
       <div class="input" contenteditable spellcheck="false" ></div>
     `
   }
-
+  // todo убрать консоль-логи
   onInput(event) {
     console.log(this.$root)
     console.log('Formula onInput :', event.target.textContent.trim())
