@@ -19,7 +19,6 @@ function toButton(button) {
 }
 
 export function createToolbar(s) {
-  // console.log('create toolbar state', s)
   const buttons = [
     {
       value: {textAlign: 'left'},
