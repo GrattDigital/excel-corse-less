@@ -65,3 +65,7 @@ export function cloneObj(obj) {
 export function preventDefault(event) {
   event.preventDefault()
 }
+
+export function storageName(param) {
+  return 'excel:' + param
+}
